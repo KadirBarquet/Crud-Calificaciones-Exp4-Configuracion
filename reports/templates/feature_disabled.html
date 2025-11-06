@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Funcionalidad Desactivada{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-warning text-center">
+        <h2>{{ title }}</h2>
+        <p>{{ message }}</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Volver al Inicio</a>
+    </div>
+</div>
+{% endblock %}

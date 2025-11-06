@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'notas',
+    'reports',
+    'notifications',
    
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -57,6 +59,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.feature_flags',
             ],
         },
     },
@@ -123,3 +126,13 @@ LOGIN_URL = '/login'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Importar configuración de productos
+from core.config_product import get_active_config
+
+# Configuración de funcionalidades opcionales basadas en variantes
+PRODUCT_CONFIG = get_active_config()
+ENABLE_REPORTS = PRODUCT_CONFIG.get('ENABLE_REPORTS', False)
+ENABLE_NOTIFICATIONS = PRODUCT_CONFIG.get('ENABLE_NOTIFICATIONS', False)
+ENABLE_ADVANCED_SEARCH = PRODUCT_CONFIG.get('ENABLE_ADVANCED_SEARCH', False)
+ENABLE_STATISTICS = PRODUCT_CONFIG.get('ENABLE_STATISTICS', False)

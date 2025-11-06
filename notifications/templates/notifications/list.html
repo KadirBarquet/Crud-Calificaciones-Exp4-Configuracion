@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Notificaciones{% endblock %}
+{% block content %}
+<style>
+    .notification-card {
+        transition: transform 0.2s;
+    }
+    
+    .notification-card:hover {
+        transform: translateX(5px);
+    }
+    
+    .notification-info {
+        border-left: 4px solid #3498db;
+    }
+    
+    .notification-success {
+        border-left: 4px solid #2ecc71;
+    }
+    
+    .notification-warning {
+        border-left: 4px solid #f39c12;
+    }
+</style>
+
+<div class="container">
+    <div class="py-2 mt-2 border border-1 shadow rounded text-center bg-white">
+        <h1 class="fw-bold text-success">{{ title }}</h1>
+    </div>
+    
+    <div class="mt-4">
+        {% if notifications %}
+            {% for notification in notifications %}
+            <div class="card notification-card notification-{{ notification.type }} mb-3">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <span style="font-size: 2rem;">{{ notification.icon }}</span>
+                        </div>
+                        <div class="col">
+                            <h5 class="card-title mb-1">{{ notification.title }}</h5>
+                            <p class="card-text mb-1">{{ notification.message }}</p>
+                            <small class="text-muted">{{ notification.date }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info text-center">
+                <h4>No hay notificaciones</h4>
+                <p>No tienes notificaciones en este momento</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

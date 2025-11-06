@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Exportar Reportes{% endblock %}
+{% block content %}
+<style>
+    .btn-outline-success {
+        color: #ffffff; 
+        border-color: #3498db; 
+        background-color: #3498db;
+    }
+  
+    .btn-outline-success:hover {
+        color: #3498db; 
+        border-color: #3498db; 
+        background-color: #ffffff;
+    }
+</style>
+
+<div class="container">
+    <div class="py-2 mt-2 border border-1 shadow rounded text-center bg-white">
+        <h1 class="fw-bold text-success">{{ title }}</h1>
+    </div>
+    
+    <div class="mt-4 p-4 border border-1 shadow rounded bg-white">
+        <h3>Opciones de Exportación</h3>
+        <p>Seleccione el formato de exportación para el reporte de notas:</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">📄 Exportar a PDF</h5>
+                        <p class="card-text">Genera un documento PDF con todas las notas</p>
+                        <button class="btn btn-outline-success">Generar PDF</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">📊 Exportar a Excel</h5>
+                        <p class="card-text">Genera una hoja de cálculo con las notas</p>
+                        <button class="btn btn-outline-success">Generar Excel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h4>Resumen de Datos</h4>
+            <p>Total de estudiantes: <strong>{{ students.count }}</strong></p>
+            <p>Total de registros de notas: <strong>{{ notas.count }}</strong></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
