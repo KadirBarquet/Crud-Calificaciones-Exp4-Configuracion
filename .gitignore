@@ -1,0 +1,31 @@
+# Ignorar directorios de python
+__pycache__
+
+# Ignorar directorio de entorno virtual
+venv
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar archivos de datos
+*.db
+*.sqlite3
+*.sql
+
+# Ignorar archivos de configuracion
+*.conf
+
+# Ignorar archivos de caché
+*.cache
+
+# Ignorar archivos de archivos de tests
+*.test
+
+# Ignorar archivos de variables de entorno
+*.env
+
+# Ignorar archivos de virtualenv
+.venv
+
+# Ignorar archivos de archivos de tests
+.pytest_cache
